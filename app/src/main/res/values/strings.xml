@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">NotificationTranslator</string>
+    <string name="collapsedNotification_text">Szczurk3\'s Translate</string>
+    <string name="settingsNotification_text">Szczurk3\'s Translate Settings</string>
+    <string name="expandedNotification_enterWord">Enter text</string>
+    <string name="expandedNotification_yourWord">Word</string>
+    <string name="expandedNotification_translation">Translation</string>
+    <string name="expandedNotification_currentLanguage">Some Language</string>
+    <string name="expandedNotification_desireLanguage">Some Language</string>
+    <string name="reply_label">reply</string>
+    <string name="label">label</string>
+    <string name="currentLanguageText">Choose your language</string>
+    <string name="desireLanguageText">Choose foreign language</string>
+</resources>
