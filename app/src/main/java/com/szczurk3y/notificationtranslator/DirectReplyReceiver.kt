@@ -19,11 +19,10 @@ class DirectReplyReceiver : BroadcastReceiver() {
         Log.d("ELO", "JESTEM W DirectReplyReceiver")
 
         if (results != null) {
-            val quickReplyResult = results.getCharSequence(MainActivity.KEY_TEXT_REPLY)
-            Toast.makeText(context, quickReplyResult, Toast.LENGTH_LONG).show()
+            val quickReplyResult = results.getCharSequence(Settings.KEY_TEXT_REPLY)
             val notificationManager = NotificationManagerCompat.from(context!!)
             notificationManager.cancelAll()
-            MainActivity.textView.text = quickReplyResult!!.toString()
+            MainActivity.newNotification(quickReplyResult!!.toString())
         }
     }
 }
