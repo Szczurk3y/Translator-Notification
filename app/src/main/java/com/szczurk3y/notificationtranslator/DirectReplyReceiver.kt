@@ -16,8 +16,8 @@ import com.mannan.translateapi.TranslateAPI
 
 class DirectReplyReceiver : BroadcastReceiver() {
     companion object {
-        var replyResult: String = ""
-        var translatedWord: String = ""
+        var replyResult: String = "WORD"
+        var translatedWord: String = "TRANSLATION"
         var swaped: Boolean = false
     }
     override fun onReceive(context: Context?, intent: Intent?) {
