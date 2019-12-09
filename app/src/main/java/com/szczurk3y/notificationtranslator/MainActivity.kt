@@ -1,16 +1,17 @@
 package com.szczurk3y.notificationtranslator
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import androidx.core.app.RemoteInput
 import android.content.Intent
 import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
-import android.widget.TextView
+import android.view.View
+import android.widget.*
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.mannan.translateapi.Language
@@ -24,6 +25,7 @@ object Settings {
     const val CHANNEL_ID: String = "com.szczurk3y.notificationtranslator"
     const val KEY_TEXT_REPLY: String = "key_text_reply"
     const val REQUEST_CODE: Int = 10
+    const val NAME: String = "cos"
 }
 
 class MainActivity : AppCompatActivity() {
@@ -247,9 +249,16 @@ class MainActivity : AppCompatActivity() {
                  .setOnlyAlertOnce(true)
                  .build();
 
+
+
              val notificationManager: NotificationManagerCompat = NotificationManagerCompat.from(Settings.CONTEXT)
              notificationManager.cancelAll()
-             notificationManager.notify(1, notification)
+
+             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                 val mChannel: NotificationChannel = NotificationChannel(Settings.CHANNEL_ID, Settings.NAME, NotificationManager.IMPORTANCE_HIGH)
+                 notificationManager.createNotificationChannel(mChannel)
+             }
+             notificationManager.notify(Settings.REQUEST_CODE, notification)
          }
      }
 }
